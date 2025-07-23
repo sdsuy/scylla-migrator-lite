@@ -1,23 +1,22 @@
-# Paso 01 - Estructura básica del proyecto
+# Paso 02 - Conexión con Spark + Cassandra
 
-Este paso inicial crea la estructura básica para comenzar a construir `scylla-migrator-lite`.
+Este paso permite crear la SparkSession con Cassandra usando Apache Spark.
 
-## Archivos principales
+## Requisitos
 
-- `Main.scala`: Contiene un esqueleto con `main()` que imprime un mensaje.
-- `build.sbt`: Define el nombre del proyecto, versión y versión de Scala.
+- Spark 3.5.6
+- Cassandra 4.1 accesible en `localhost:9042`
 
 ## Cómo probar
 
-1. Asegúrese de tener `sbt` instalado.
+1. Asegúrese de tener una base de datos corriendo en `127.0.0.1`.
 2. Ejecute:
 
 ```bash
 sbt run
 ```
 
-Debería ver en la consola:
+## Archivos
 
-```
-Scylla Migrator Lite - Etapa 1: Estructura básica lista
-```
+- `Main.scala`: ahora crea una SparkSession y conecta a Cassandra.
+- `build.sbt`: ya incluye dependencias de Spark y Cassandra Connector.
