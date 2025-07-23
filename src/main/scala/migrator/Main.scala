@@ -11,11 +11,16 @@ object Main {
       .config("spark.cassandra.connection.port", "9042")
       .getOrCreate()
 
-    println("✔ SparkSession creada correctamente.")
-    println(s"✔ Versión de Spark: ${spark.version}")
+    import spark.implicits._
 
-    // Espera para ver logs si estás corriendo en entorno standalone
-    Thread.sleep(2000)
+    println("✔ Conectando a Cassandra y leyendo tabla demo.usuarios...")
+
+    val df = spark.read
+      .format("org.apache.spark.sql.cassandra")
+      .options(Map("table" -> "usuarios", "keyspace" -> "demo"))
+      .load()
+
+    df.show()
 
     spark.stop()
   }
