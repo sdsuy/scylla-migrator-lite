@@ -10,3 +10,4 @@ lazy val root = (project in file("."))
 libraryDependencies += "org.apache.spark" %% "spark-core" % "3.5.6"
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.5.6" // % "provided"
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "3.5.1"
+libraryDependencies += "org.yaml" % "snakeyaml" % "2.4"

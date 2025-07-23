@@ -1,0 +1,11 @@
+source:
+  keyspace: demo
+  table: usuarios
+
+target:
+  keyspace: demo
+  table: usuarios_migrados
+
+cassandra:
+  host: 127.0.0.1
+  port: 9042

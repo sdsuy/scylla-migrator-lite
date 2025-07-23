@@ -1,16 +1,20 @@
-# Paso 04 - Escritura en tabla de destino
+# Paso 05 - Configuración con YAML
 
-Este paso extiende el anterior leyendo datos de `usuarios` y escribiéndolos en `usuarios_migrados`.
+En este paso, se agrega la posibilidad de leer parámetros de configuración desde un archivo YAML.
+
+## Archivos agregados
+
+- `config.yaml`: Contiene parámetros simples como `keyspace`, `source_table`, `target_table`.
+- `Main.scala`: Se actualiza para leer y mostrar el contenido del YAML usando `SnakeYAML`.
+- `build.sbt`: Se añade dependencia a `org.yaml:snakeyaml`.
 
 ## Cómo probar
 
-1. Asegúrese de que la tabla `usuarios_migrados` exista en Cassandra con el mismo esquema que la original.
+1. Asegúrese de tener `sbt` instalado.
 2. Ejecute:
 
 ```bash
 sbt run
 ```
 
-## Resultado
-
-Se migran los datos de `usuarios` a `usuarios_migrados` usando Spark.
+Ahora se leen parámetros de configuración desde el archivo YAML.
