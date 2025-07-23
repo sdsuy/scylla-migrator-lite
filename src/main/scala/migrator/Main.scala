@@ -22,6 +22,16 @@ object Main {
 
     df.show()
 
+    println("➡ Migrando datos hacia demo.usuarios_migrados...")
+
+    df.write
+      .format("org.apache.spark.sql.cassandra")
+      .options(Map("table" -> "usuarios_migrados", "keyspace" -> "demo"))
+      .mode("APPEND")
+      .save()
+
+    println("✅ Migración completada.")
+
     spark.stop()
   }
 }

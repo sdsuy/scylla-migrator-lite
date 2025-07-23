@@ -1,23 +1,16 @@
-# Paso 03 - Leer tabla en Cassandra desde Spark (Scala)
+# Paso 04 - Escritura en tabla de destino
 
-Este paso permite leer una tabla usuarios en Cassandra usando Apache Spark.
-
-## Requisitos
-
-- Spark 3.5.6
-- Cassandra 4.1 accesible en `localhost:9042`
-- Keyspace `demo` y tabla `usuarios`
+Este paso extiende el anterior leyendo datos de `usuarios` y escribiéndolos en `usuarios_migrados`.
 
 ## Cómo probar
 
-1. Asegúrese de tener una base de datos corriendo en `127.0.0.1`.
-2. Verifique que exista el `keyspace` y `source_table`.
-3. Ejecute:
+1. Asegúrese de que la tabla `usuarios_migrados` exista en Cassandra con el mismo esquema que la original.
+2. Ejecute:
 
 ```bash
 sbt run
 ```
 
-## Archivos
+## Resultado
 
-- `Main.scala`: ahora lee una tabla desde Cassandra usando una SparkSession.
+Se migran los datos de `usuarios` a `usuarios_migrados` usando Spark.
